@@ -100,6 +100,9 @@ _logs
 ## TypeScript cache
 *.tsbuildinfo
 
+## Jest cache
+tmp
+
 # macOS
 ## System files
 .DS_Store
