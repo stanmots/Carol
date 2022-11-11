@@ -1,0 +1,10 @@
+.husky
+.vscode
+.npm
+node_modules
+tmp
+coverage
+build
+dist
+/lib
+/__tests__
