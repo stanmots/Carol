@@ -1,0 +1,23 @@
+{
+    "extends": "@tsconfig/strictest/tsconfig.json",
+    "compilerOptions": {
+        /* Language and Environment */
+        "target": "ES6",
+        "useDefineForClassFields": true,
+
+        /* Modules */
+        "module": "ES2015",
+        "moduleResolution": "node16",
+        "resolveJsonModule": true,
+
+        /* JavaScript Support */
+        "allowJs": true,
+        "checkJs": true,
+
+        /* Emit */
+        "outDir": "lib",
+        "declaration": true,
+        "declarationMap": true,
+        "noEmitOnError": true
+    }
+}
