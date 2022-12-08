@@ -34,17 +34,21 @@
         "LICENSE"
     ],
     "scripts": {
-        "test": "npm run set-env -- jest",
+        "test": "npm run node-cmd -- jest",
         "test-watch": "npm run test -- --watch",
         "build-tests": "tsc -b tsconfig-tests.json",
         "build-watch-tests": "npm run build-tests -- -w",
         "build-src": "tsc -b tsconfig-src.json",
         "build-watch-src": "npm run build-src -- -w",
         "clean-src": "npm run build-src -- --clean",
-        "format": "prettier --write --ignore-unknown .",
-        "format-cached": "prettier --write --cache --cache-strategy metadata",
-        "lint": "eslint --fix .",
-        "set-env": "node ./scripts/set-env.js"
+        "format": "npm run node-cmd -- prettier .",
+        "format-cached": "npm run node-cmd -- prettier-cached .",
+        "lint": "npm run node-cmd -- eslint .",
+        "lint-cached": "npm run node-cmd -- eslint-cached .",
+        "spell-check-all": "npm run node-cmd -- cspell \"**\"",
+        "spell-check-all-cached": "npm run node-cmd -- cspell-cached \"**\"",
+        "spell-check-changed": "npm run node-cmd -- cspell-changed",
+        "node-cmd": "node ./_scripts/node-cmd.js"
     },
     "devDependencies": {
         "@tsconfig/strictest": "^1.0.1",
