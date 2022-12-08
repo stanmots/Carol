@@ -1,0 +1,16 @@
+{
+    "allowCompoundWords": true,
+    "enableFiletypes": ["*"],
+    "ignorePaths": [".cspell, .git"],
+    "dictionaryDefinitions": [
+        {
+            "name": "CarApiDict",
+            "path": "../.cspell/car-api-dict.txt"
+        },
+        {
+            "name": "UtilsDict",
+            "path": "../.cspell/utils-dict.txt"
+        }
+    ],
+    "dictionaries": ["CarApiDict", "UtilsDict"]
+}

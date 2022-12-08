@@ -5,6 +5,7 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+!.vscode/cspell.json
 
 ## Stores VSCode versions used for testing VSCode extensions
 .vscode-test
@@ -102,6 +103,9 @@ _logs
 
 ## Jest cache
 tmp
+
+## CSpell cache
+.cspellcache
 
 # macOS
 ## System files

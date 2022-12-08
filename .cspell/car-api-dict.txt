@@ -1,0 +1,10 @@
+# Words related to car api requests
+esign
+HVAC
+macgyver
+Oidc
+PKCE
+telematics
+TMBLE
+trtid
+TXID

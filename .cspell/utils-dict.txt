@@ -1,0 +1,13 @@
+# Words related to the project utilities
+apdisk
+donotpresent
+dotenv
+fseventsd
+icns
+jscoverage
+jspm
+lcov
+pids
+pnpm
+esbenp
+tsbuildinfo

@@ -56,6 +56,7 @@
         "@types/node": "^18.0.6",
         "@typescript-eslint/eslint-plugin": "^5.30.5",
         "@typescript-eslint/parser": "^5.30.5",
+        "cspell": "^6.17.0",
         "eslint": "^8.19.0",
         "husky": "^8.0.1",
         "jest": "^28.1.3",
@@ -65,9 +66,13 @@
     },
     "lint-staged": {
         "**/*.{js,jsx,ts,tsx}": [
-            "eslint --fix --cache",
-            "npm run format-cached"
+            "npm run node-cmd -- eslint-cached",
+            "npm run node-cmd -- prettier-cached",
+            "npm run node-cmd -- cspell-cached"
         ],
-        "**/*.{json,css,scss,md,htm,html}": "npm run format-cached"
+        "**/*.{json,css,scss,md,htm,html}": [
+            "npm run node-cmd -- prettier-cached",
+            "npm run node-cmd -- cspell-cached"
+        ]
     }
 }
