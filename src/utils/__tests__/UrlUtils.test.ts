@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import type { QueryParams } from "../UrlUtils.js"
+import type { StringConvertible } from "../TypeUtils.js"
 import { toQueryString } from "../UrlUtils.js"
 
-const queryMock: QueryParams = {
+const queryMock: StringConvertible = {
     a: 3,
     b: true,
     c: "Test String",

@@ -7,22 +7,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/**
- * Represents URL query parameters.
- *
- * Keys and values must be convertable to strings.
- */
-export interface QueryParams {
-    [k: string]: { toString(): string }
-}
+import type { StringConvertible } from "./TypeUtils.js"
 
 /**
  * Converts the given query parameters to a query string.
  *
- * @param { QueryParams } params The object with key-value pairs representing URL query parameters.
- * @returns { string } A string with URL-encoded query parameters. The string always starts with "?" symbol.
+ * @param params The object with key-value pairs representing URL query parameters.
+ * @returns A string with URL-encoded query parameters. The string always starts with `?`symbol.
  */
-export function toQueryString(params: QueryParams): string {
+export function toQueryString(params: StringConvertible): string {
     const query = new URLSearchParams()
     Object.keys(params).forEach((key) => {
         query.append(key, params[key]?.toString() as string)
