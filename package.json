@@ -68,11 +68,11 @@
         "**/*.{js,jsx,ts,tsx}": [
             "npm run node-cmd -- eslint-cached",
             "npm run node-cmd -- prettier-cached",
-            "npm run node-cmd -- cspell-cached"
+            "npm run node-cmd -- cspell-changed"
         ],
         "**/*.{json,css,scss,md,htm,html}": [
             "npm run node-cmd -- prettier-cached",
-            "npm run node-cmd -- cspell-cached"
+            "npm run node-cmd -- cspell-changed"
         ]
     }
 }
