@@ -1,29 +1,29 @@
 {
-	"editor.wordWrap": "bounded",
+    "editor.wordWrap": "bounded",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "eslint.alwaysShowStatus": true,
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
-	"psi-header.config": {
-		"forceToTop": true,
-	},
+    "psi-header.config": {
+        "forceToTop": true
+    },
     "psi-header.templates": [
         {
-			"language": "javascript",
-			"template": [
-				"File: <<filename>>",
-				"",
-				"Copyright (c) <<author>>. All rights reserved.",
-				"",
+            "language": "javascript",
+            "template": [
+                "File: <<filename>>",
+                "",
+                "Copyright (c) <<author>>. All rights reserved.",
+                "",
                 "This source code is licensed under the MIT license found in the",
                 "LICENSE file in the root directory of this source tree."
-			],
-		},
-		{
-			"language": "typescript",
-			"mapTo": "javascript"
-		}
+            ]
+        },
+        {
+            "language": "typescript",
+            "mapTo": "javascript"
+        }
     ]
 }

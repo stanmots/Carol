@@ -1,5 +1,4 @@
 .husky
-.vscode
 .npm
 node_modules
 tmp
@@ -8,3 +7,6 @@ build
 dist
 /lib
 /__tests__
+.vscode/*
+!.vscode/settings.json
+!.vscode/cspell.json
