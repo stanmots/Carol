@@ -58,10 +58,11 @@ export interface TeslaApiHeaders extends HttpRequestHeaders {
 }
 
 /**
- * Generates `sendCommand` function parameters.
+ * Generates `perform` function parameters.
  *
- * **See** {@link CarApiSendCommandFuncParams}
+ * @see {@link RestApiPerformFuncParams}
  */
-export type TeslaApiSendCommandFuncParams = CarApiSendCommandFuncParams<
-    typeof TeslaApiCommandTemplates
+export type TeslaApiPerformFuncParams = RestApiPerformFuncParams<
+    typeof TeslaApiRequestTemplates,
+    typeof TeslaApiRequestGroupTemplates
 >
