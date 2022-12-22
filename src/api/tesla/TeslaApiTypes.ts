@@ -7,9 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import type { CarApiSendCommandFuncParams } from "../shared/CarApiTypes.js"
+import type { RestApiPerformFuncParams } from "../shared/RestApiTypes.js"
 import type { HttpRequestHeaders } from "../shared/HttpTypes.js"
-import type { TeslaApiCommandTemplates } from "./TeslaApiCommandTemplates.js"
+import type {
+    TeslaApiRequestGroupTemplates,
+    TeslaApiRequestTemplates,
+} from "./TeslaApiRequestTemplates.js"
 
 export interface TeslaApiHeaders extends HttpRequestHeaders {
     /**
