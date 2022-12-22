@@ -180,6 +180,32 @@ export type Splice<
     A extends AnyArray = Split<T, P>
 > = [...AsAnyArray<A[0]>, ...AsAnyArray<RemoveLeading<AsAnyArray<A[1]>, N>>]
 
+//### Union Utils
+
+/**
+ * Creates a union of the `T` object values.
+ */
+export type UnionOfValues<T extends object> = T[keyof T]
+
+/**
+ * @title
+ * Constructs a union of elements shared between all unions
+ * of the given tuple.
+ *
+ * @example
+ * // Resulting type: "str3" | "str4"
+ * type Test = CommonOfUnions<["str2" | "str3" | "str4", "str3" | "str4" | 23]>
+ *
+ * @template T - A tuple where each element represents a union.
+ * The number of elements must be greater than `0`.
+ */
+export type CommonOfUnions<T extends AnyArray> = IsEqual<
+    T["length"],
+    1
+> extends true
+    ? T[0]
+    : Extract<T[0], CommonOfUnions<RemoveLeading<T>>>
+
 //### Object Utils
 
 export type ObjectKey = string | number | symbol
