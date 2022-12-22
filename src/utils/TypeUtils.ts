@@ -242,6 +242,24 @@ export type ObjectWithKeysAtKeyPath<KP extends ObjectKey[]> = IsEqual<
     : unknown
 
 /**
+ * @title
+ * Returns `true` if the given key path exists in the object; `false` otherwise.
+ *
+ * @template T - The object to check the key path in.
+ * @template KP - The key path.
+ */
+export type IsKeyPathValid<T extends AnyObject, KP extends string[]> = IsEqual<
+    KP["length"],
+    1
+> extends true
+    ? T[KP[0]] extends AnyObject | Primitive
+        ? true
+        : false
+    : T[KP[0]] extends AnyObject
+    ? IsKeyPathValid<T[KP[0]], RemoveLeading<KP, 1, string>>
+    : false
+
+/**
  * Returns a type of a value at the given key path.
  *
  * @example
