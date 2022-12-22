@@ -16,6 +16,7 @@ import type {
 
 export interface TeslaApiHeaders extends HttpRequestHeaders {
     /**
+     * @title
      * Used to identify the tesla app.
      *
      * ### Syntax
@@ -33,21 +34,24 @@ export interface TeslaApiHeaders extends HttpRequestHeaders {
      * - `<platform-version>`: The current device's OS version (e.g., `12` for Android Snow Cone). Any version the native apps support is accepted.
      *
      * @example
-     *
      * `TeslaApp/4.8.1/5e1bfb8d0d/ios/15.4.1`
      */
     "X-Tesla-User-Agent"?: string
 
     /**
+     * @title
      * Used to debug requests.
      *
+     * @note
      * Tesla endpoints expect random `UUID` values.
      */
     "X-TXID"?: string
 
     /**
+     * @title
      * Used to set the public key identifier `PUBLIC_KEY_ID`.
      *
+     * @note
      * The header is only used in conjunction with TMBLE Bluetooth module.
      */
     "X-Tesla-App-Key"?: string
