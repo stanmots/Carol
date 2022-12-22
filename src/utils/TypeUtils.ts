@@ -27,11 +27,13 @@ export type IsNumber<T> = T extends number ? true : false
 //### Recursion Utils
 
 /**
+ * @title
  * Checks whether the `TypeScript` recursion limit
  * has been exceeded.
  *
- * **Note:** For large numbers of elements `TypeScript` triggers
- * recursive heuristics. See [Tail-Recursion Elimination on Conditional Types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-5/#tailrec-conditional)
+ * @note
+ * For large numbers of elements `TypeScript` triggers
+ * recursive heuristics. See [Tail-Recursion Elimination on Conditional Types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-5/#tailrec-conditional).
  *
  * @template A - The accumulator type whose `length` property
  * determines the recursion count.
@@ -45,11 +47,13 @@ export type IsRecursionLimitExceeded<
 //### Array Utils
 
 /**
+ * @title
  * Represents an array type of `unknown` elements.
  */
 export type AnyArray = unknown[]
 
 /**
+ * @title
  * Converts the given array type to a union of the array values.
  *
  * @template A - The input array type.
@@ -59,6 +63,7 @@ export type ArrayToUnion<A extends AnyArray> = A[number]
 //### Tuple Utils
 
 /**
+ * @title
  * Removes the specified number of elements from a tuple
  * starting from the first position (zero-based index).
  *
@@ -79,6 +84,7 @@ export type RemoveLeading<
     : never
 
 /**
+ * @title
  * Constructs a tuple with the specified number of elements
  * of type `T`.
  *
@@ -96,6 +102,7 @@ export type TupleOfLength<T, L extends number, A extends T[] = [T]> = IsEqual<
     : TupleOfLength<T, L, [...A, T]>
 
 /**
+ * @title
  * Creates a tuple type with two elements which represent
  * the splitted input tuple at the given position.
  *
@@ -106,8 +113,7 @@ export type TupleOfLength<T, L extends number, A extends T[] = [T]> = IsEqual<
  * @template T - The input tuple to split.
  * @template P - Zero-based position index to split the tuple at. The element
  * at the index is pushed to the second element of the resulting tuple.
- * @template A - Helper type to store the temp values.
- * **Must not be overridden.**
+ * @template A - Helper type to store temp values. **Must not be overridden.**
  */
 export type SplitTupleAtPosition<
     T extends AnyArray,
@@ -120,6 +126,7 @@ export type SplitTupleAtPosition<
     : never
 
 /**
+ * @title
  * Creates a tuple type with two elements which represent
  * the splitted input tuple at the given element.
  *
@@ -130,8 +137,7 @@ export type SplitTupleAtPosition<
  * @template T - The input tuple to split.
  * @template E - An element to split the tuple at. It is pushed
  * to the second element of the resulting tuple.
- * @template A - Helper type to store the temp values.
- * **Must not be overridden.**
+ * @template A - Helper type to store temp values. **Must not be overridden.**
  */
 export type SplitTupleAtElement<
     T extends AnyArray,
@@ -144,6 +150,7 @@ export type SplitTupleAtElement<
     : never
 
 /**
+ * @title
  * Conditionally calls `SplitTupleAtPosition`, `SplitTupleAtElement`, or
  * `SplitString` depending on the given parameters.
  *
@@ -160,6 +167,7 @@ export type Split<T, S> = T extends string
     : never
 
 /**
+ * @title
  * Constructs a type by removing the specified number of elements
  * from the specified position in a tuple.
  *
@@ -183,6 +191,7 @@ export type Splice<
 //### Union Utils
 
 /**
+ * @title
  * Creates a union of the `T` object values.
  */
 export type UnionOfValues<T extends object> = T[keyof T]
@@ -212,16 +221,13 @@ export type ObjectKey = string | number | symbol
 export type AnyObject = { [k: ObjectKey]: unknown }
 
 /**
+ * @title
  * Represents any js object with `string` keys.
  */
 export type StringKeyedObject = { [k: string]: unknown }
 
 /**
- * Creates a union of the `T` object values.
- */
-export type UnionOfValues<T extends object> = T[keyof T]
-
-/**
+ * @title
  * Constructs an `object` type with keys at the given key path.
  *
  * @example
@@ -260,6 +266,7 @@ export type IsKeyPathValid<T extends AnyObject, KP extends string[]> = IsEqual<
     : false
 
 /**
+ * @title
  * Returns a type of a value at the given key path.
  *
  * @example
@@ -277,6 +284,7 @@ export type ValueAtKeyPath<
     : ValueAtKeyPath<AsAnyObject<T[KP[0]]>, RemoveLeading<KP, 1, ObjectKey>>
 
 /**
+ * @title
  * Returns all key paths to the values of `string` type.
  *
  * @example
@@ -302,6 +310,7 @@ export type KeyPathsOfStringValues<
 }>
 
 /**
+ * @title
  * Returns all `string` literal values from the given object.
  *
  * @example
@@ -325,6 +334,7 @@ export type StringValues<T extends AnyObject> = UnionOfValues<{
 //### String Utils
 
 /**
+ * @title
  * Represents any type that can be converted to a string
  * using `toString` method.
  */
@@ -333,6 +343,7 @@ export interface StringConvertible {
 }
 
 /**
+ * @title
  * Creates a tuple type with two elements which represent
  * the substrings splitted at the specified delimiter.
  *
@@ -349,6 +360,7 @@ export type SplitString<
 > = S extends `${infer L}${D}${infer R}` ? [L, R] : never
 
 /**
+ * @title
  * Constructs a union of the strings extracted between the specified
  * delimiters from the given string.
  *
@@ -373,6 +385,7 @@ export type SubstringsFromString<
     : ArrayToUnion<A>
 
 /**
+ * @title
  * Constructs a union of the strings extracted between
  * the specified delimiters from the object values defined
  * as string literals.
@@ -384,8 +397,7 @@ export type SubstringsFromString<
  * @template T - The object to extract substrings from.
  * @template SD - The start position delimiter.
  * @template ED - The end position delimiter.
- * @template A - The accumulator type used to control recursion depth.
- * **Must not be overridden.**
+ * @template A - The accumulator type used to control recursion depth. **Must not be overridden.**
  */
 export type SubstringsFromObject<
     T extends AnyObject,
@@ -403,6 +415,7 @@ export type SubstringsFromObject<
 }>
 
 /**
+ * @title
  * Conditionally calls either `SubstringsFromString` or
  * `SubstringsFromObject` depending on the `T` parameter.
  */
@@ -415,6 +428,7 @@ export type Substrings<
     : SubstringsFromObject<AsAnyObject<T>, SD, ED>
 
 /**
+ * @title
  * Constructs a type by creating a union of combinations of the string
  * literals extracted from the given string union.
  *
@@ -423,8 +437,7 @@ export type Substrings<
  * type Test = Permutations<"str1" | "str2">
  *
  * @template SU - A string union.
- * @template A - Helper type used to store the input union.
- * **Must not be overridden.**
+ * @template A - Helper type used to store the input union. **Must not be overridden.**
  */
 export type Permutations<
     SU extends string,
